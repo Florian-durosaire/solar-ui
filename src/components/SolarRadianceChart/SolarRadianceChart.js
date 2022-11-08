@@ -8,11 +8,11 @@ class SolarRadianceChart extends Component {
   constructor(props) {
     super(props);
 
-    const xAxisLabel = 'Panel';
+    const xAxisLabel = 'Sondes';
 
     const yAxisLabel = 'kW/m²';
 
-    this.seriesLabel = 'Solar Radiance';
+    this.seriesLabel = 'Rayonnement solaire';
 
     this.options = {
       maintainAspectRatio: false,

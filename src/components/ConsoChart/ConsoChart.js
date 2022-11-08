@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Line} from 'react-chartjs-2';
 import palette from '../../lib/color';
-import './PowerOutputChart.css';
+import './ConsoChart.css';
 
-class PowerOutputChart extends Component {
+class ConsoChart extends Component {
   constructor(props) {
     super(props);
 
@@ -14,7 +14,7 @@ class PowerOutputChart extends Component {
 
     this.initialPointRadius = 2;
 
-    this.powerLineLabel = 'Power Output';
+    this.powerLineLabel = 'Puissance entré';
 
     this.powerLineBackgroundColor = palette.lightGreen.setAlpha(0.1).toString();
 
@@ -72,7 +72,7 @@ class PowerOutputChart extends Component {
     };
 
     const initialTotalOutputPowerHistory = [null, null, null, null, null, null].map(() => {
-      return PowerOutputChart.getTotalOutputPower(this.props.panels);
+      return ConsoChart.getTotalOutputPower(this.props.panels);
     });
 
     // Store these values in the component state so React re-renders the component whenever these values change.
@@ -91,7 +91,7 @@ class PowerOutputChart extends Component {
   updateTotalOutputPowerHistory() {
     this.setState((prevState, props) => {
       const totalOutputPowerHistory = prevState.totalOutputPowerHistory.concat();
-      const totalOutputPower = PowerOutputChart.getTotalOutputPower(props.panels);
+      const totalOutputPower = ConsoChart.getTotalOutputPower(props.panels);
       totalOutputPowerHistory.shift();
       totalOutputPowerHistory.push(totalOutputPower);
       return {
@@ -109,7 +109,7 @@ class PowerOutputChart extends Component {
   static getTotalOutputPower(panels) {
     return panels.reduce((accumulator, panel) => {
       const outputPowerW = panel.outputVoltageV * panel.outputCurrentA;
-      const outputPowerKW = outputPowerW / 1000;
+      const outputPowerKW = outputPowerW / 1000 * 2;
       return accumulator + outputPowerKW;
     }, 0);
   }
@@ -131,15 +131,15 @@ class PowerOutputChart extends Component {
     };
 
     return (
-      <div className='power-output-chart--chart-wrapper'>
+      <div className='conso-chart--chart-wrapper'>
         <Line data={data} options={this.options} legend={this.legend}/>
       </div>
     );
   }
 }
 
-PowerOutputChart.propTypes = {
+ConsoChart.propTypes = {
   panels: PropTypes.array.isRequired,
 };
 
-export default PowerOutputChart;
+export default ConsoChart;

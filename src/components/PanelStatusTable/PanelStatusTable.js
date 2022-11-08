@@ -67,11 +67,11 @@ class PanelStatusTable extends Component {
         <Table unstackable celled compact definition className='panel-status-table--table'>
           <Table.Header fullWidth>
             <Table.Row>
-              <Table.HeaderCell>Enabled</Table.HeaderCell>
-              <Table.HeaderCell>Panel</Table.HeaderCell>
-              <Table.HeaderCell>Solar Radiance</Table.HeaderCell>
-              <Table.HeaderCell>Output Voltage</Table.HeaderCell>
-              <Table.HeaderCell>Output Current</Table.HeaderCell>
+              <Table.HeaderCell>Activé</Table.HeaderCell>
+              <Table.HeaderCell>Sonde</Table.HeaderCell>
+              <Table.HeaderCell>Rayonnement solaire</Table.HeaderCell>
+              <Table.HeaderCell>Sortie Volt</Table.HeaderCell>
+              <Table.HeaderCell>Sortie courant</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -81,14 +81,10 @@ class PanelStatusTable extends Component {
             <Table.Row>
               <Table.HeaderCell colSpan='7'>
                 <Button.Group size='small'>
-                  <Button basic color='green' disabled={this.allPanelsAreDisabled()} onClick={this.disableAllPanels.bind(this)}>Disable All</Button>
-                  <Button color='green' disabled={this.allPanelsAreEnabled()} onClick={this.enableAllPanels.bind(this)}>Enable All</Button>
+                  <Button basic color='green' disabled={this.allPanelsAreDisabled()} onClick={this.disableAllPanels.bind(this)}>Désactiver tout</Button>
+                  <Button color='green' disabled={this.allPanelsAreEnabled()} onClick={this.enableAllPanels.bind(this)}>Activer tout</Button>
                 </Button.Group>
 
-                <Button size='small' color='green' icon labelPosition='left' floated='right'
-                        onClick={PanelStatusTable.forkOnGitHub}>
-                  <Icon name='fork'/> Fork on GitHub
-                </Button>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Footer>

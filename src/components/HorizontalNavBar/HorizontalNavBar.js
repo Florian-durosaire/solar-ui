@@ -57,15 +57,13 @@ class HorizontalNavBar extends Component {
                      className='hidden-on-small-monitor hidden-on-large-monitor'/>
 
           <Menu.Item as='a' header>
-            <Icon name='sun' color='yellow'/> MySolarSystem
+            <Icon name='sun' color='yellow'/> Light Power
           </Menu.Item>
-          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone' active>Overview</Menu.Item>
-          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone'>Solar Panels</Menu.Item>
-          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone'>Inverters</Menu.Item>
-          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone'>Batteries</Menu.Item>
+          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone' active>Aperçu</Menu.Item>
+          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone'>Prédiction sonde</Menu.Item>
 
           <Menu.Menu position='right' className='hidden-on-tablet hidden-on-phone'>
-            <Dropdown item icon='dropdown' text={this.state.userName}>
+            <Dropdown item icon='dropdown' text="Gerard Menfaimdetoi">
               <Dropdown.Menu>
                 <Dropdown.Item icon='user' text='Profile'/>
                 <Dropdown.Item icon='setting' text='Settings'/>

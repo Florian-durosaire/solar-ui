@@ -39,34 +39,6 @@ export const _initialPanelCollection = (function () {
         inputRadianceKWM2: null,
         outputVoltageV: null,
         outputCurrentA: null
-      },
-      {
-        id: '5',
-        enabled: false,
-        inputRadianceKWM2: null,
-        outputVoltageV: null,
-        outputCurrentA: null
-      },
-      {
-        id: '6',
-        enabled: false,
-        inputRadianceKWM2: null,
-        outputVoltageV: null,
-        outputCurrentA: null
-      },
-      {
-        id: '7',
-        enabled: false,
-        inputRadianceKWM2: null,
-        outputVoltageV: null,
-        outputCurrentA: null
-      },
-      {
-        id: '8',
-        enabled: false,
-        inputRadianceKWM2: null,
-        outputVoltageV: null,
-        outputCurrentA: null
       }
     ],
     events: [
@@ -94,14 +66,10 @@ export const _initialPanelCollection = (function () {
   newInputRadiancesByPanelId['2'] = 0.35;
   newInputRadiancesByPanelId['3'] = 0.64;
   newInputRadiancesByPanelId['4'] = 0.14;
-  newInputRadiancesByPanelId['5'] = 0.85;
-  newInputRadiancesByPanelId['6'] = 0.64;
-  newInputRadiancesByPanelId['7'] = 0.13;
-  newInputRadiancesByPanelId['8'] = 0.12;
 
   updateInputRadiances(panelCollection.panels, newInputRadiancesByPanelId);
 
-  enablePanels(panelCollection.panels, ['1', '2', '4', '5', '6', '7', '8']); // Skip panel '3', to keep things interesting.
+  enablePanels(panelCollection.panels, ['1', '2', '4']); // Skip panel '3', to keep things interesting.
 
   return panelCollection;
 })();

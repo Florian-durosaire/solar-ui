@@ -6,45 +6,40 @@ import EnergyStorageChartContainer from "../../containers/EnergyStorageChartCont
 import LatestEventsFeedContainer from "../../containers/LatestEventsFeedContainer";
 import PanelStatusTableContainer from "../../containers/PanelStatusTableContainer";
 import './OverviewPageContent.css';
+import ConsoChart from '../ConsoChart/ConsoChart';
+import ConsoChartContainer from '../../containers/ConsoChartContainer';
 
 class OverviewPageContent extends Component {
   render() {
     return (
       <Container>
-        <Header as='h1' content='Overview' subheader='System status in a nutshell'/>
+        <Header as='h1' content='Aperçu' subheader='Etat du système'/>
         <Grid stackable stretched>
-          <Grid.Column computer={8} largeScreen={4} widescreen={4}>
+          <Grid.Column computer={16} largeScreen={5} widescreen={5}>
             <Segment>
-              <Header icon='sun' content='Solar Radiance'/>
-              <p>Solar radiance at each panel.</p>
+              <Header icon='sun' content='Rayonnement solaire'/>
+              <p>Rayonnement solaire pour chaque sonde.</p>
               <SolarRadianceChartContainer/>
             </Segment>
           </Grid.Column>
-          <Grid.Column computer={8} largeScreen={4} widescreen={4}>
+          <Grid.Column computer={16} largeScreen={6} widescreen={6}>
             <Segment>
-              <Header icon='dashboard' content='Power Output'/>
-              <p>Power output by the inverter.</p>
+              <Header icon='bolt' content='Production'/>
+              <p>Production d'electricité.</p>
               <PowerOutputChartContainer/>
             </Segment>
           </Grid.Column>
-          <Grid.Column computer={8} largeScreen={4} widescreen={4}>
+          <Grid.Column computer={16} largeScreen={5} widescreen={5}>
             <Segment>
-              <Header icon='high battery' content='Energy Storage'/>
-              <p>Energy stored in each battery.</p>
-              <EnergyStorageChartContainer/>
-            </Segment>
-          </Grid.Column>
-          <Grid.Column computer={8} largeScreen={4} widescreen={4}>
-            <Segment>
-              <Header icon='clock' content='Latest Events'/>
-              <p>Latest events involving the system.</p>
-              <LatestEventsFeedContainer/>
+              <Header icon='dashboard' content='Consommation'/>
+              <p>Consommation d'electricité.</p>
+              <ConsoChartContainer/>
             </Segment>
           </Grid.Column>
           <Grid.Column width={16}>
             <Segment>
-              <Header icon='options' content='Panel Status'/>
-              <p>Status of each panel.</p>
+              <Header icon='options' content='Status sondes'/>
+              <p>Status de chaque sonde.</p>
               <PanelStatusTableContainer/>
             </Segment>
           </Grid.Column>

@@ -18,13 +18,21 @@ class OverviewPageContent extends Component {
 
     this.state = {
       toggleSemaine: false,
+      textButton: "Mois",
+      bgColor: "#21ba45",
+      txtColor: "White",
     }
 
   }
 
 
   toggleButtonSemaine = () => {
-    this.setState({ toggleSemaine: !this.state.toggleSemaine });
+    this.setState({
+      toggleSemaine: !this.state.toggleSemaine,
+      textButton: this.state.textButton === "Mois" ? "Jour" : "Mois",
+      bgColor: this.state.textButton === "Mois" ? "White" : "#21ba45",
+      txtColor: this.state.textButton === "Mois" ? "#21ba45" : "White",
+    });
   }
 
 
@@ -33,9 +41,12 @@ class OverviewPageContent extends Component {
       <Container>
         <Header as='h1' content='Aperçu' subheader='Etat du système' />
         <Button.Group size='small'>
-          <Button color='green' onClick={this.toggleButtonSemaine} id='buttonMonth'>Mois</Button>
-          <br/>
+          <Button style={{ backgroundColor: this.state.bgColor, border: "1px solid #21ba45", color: this.state.txtColor }} onClick={this.toggleButtonSemaine}>Cliquez pour la période {this.state.textButton}</Button>
+
         </Button.Group>
+        <br/>
+          <br />
+          <br />
         <Grid stackable stretched>
           <Grid.Column computer={16} largeScreen={5} widescreen={5}>
             <Segment>
@@ -48,14 +59,14 @@ class OverviewPageContent extends Component {
             <Segment>
               <Header icon='bolt' content='Production' />
               <p>Production d'electricité.</p>
-              <PowerOutputChartContainer toggleSemaine={this.state.toggleSemaine}/>
+              <PowerOutputChartContainer toggleSemaine={this.state.toggleSemaine} />
             </Segment>
           </Grid.Column>
           <Grid.Column computer={16} largeScreen={5} widescreen={5}>
             <Segment>
               <Header icon='dashboard' content='Consommation' />
               <p>Consommation d'electricité.</p>
-              <ConsoChartContainer toggleSemaine={this.state.toggleSemaine}/>
+              <ConsoChartContainer toggleSemaine={this.state.toggleSemaine} />
             </Segment>
           </Grid.Column>
           <Grid.Column width={16}>

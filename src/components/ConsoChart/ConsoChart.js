@@ -117,6 +117,7 @@ class ConsoChart extends Component {
     return panels.reduce((accumulator, panel) => {
       const outputPowerW = panel.outputVoltageV * panel.outputCurrentA;
       const outputPowerKW = outputPowerW / 1000 * 2;
+      if (this.toggleSemaine){return 0.31;}
       return getNearbyRandomNumber(0.25,0.35,0.30,0.008);
     }, 0);
   }

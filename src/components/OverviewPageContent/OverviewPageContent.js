@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { Container, Grid, Header, Segment, Button } from 'semantic-ui-react';
 import SolarRadianceChartContainer from "../../containers/SolarRadianceChartContainer";
 import PowerOutputChartContainer from "../../containers/PowerOutputChartContainer";
-import EnergyStorageChartContainer from "../../containers/EnergyStorageChartContainer";
-import LatestEventsFeedContainer from "../../containers/LatestEventsFeedContainer";
 import PanelStatusTableContainer from "../../containers/PanelStatusTableContainer";
 import './OverviewPageContent.css';
 import ConsoChartContainer from '../../containers/ConsoChartContainer';
 import './../PanelStatusTable/PanelStatusTable.css';
 import ConsoChart from '../ConsoChart/ConsoChart';
 import { element } from 'prop-types';
+import pdf from './Etude_Solaire_Detaillee.pdf';
+import SolarPanelEstimationContainer from '../../containers/SolarPanelEstimationContainer';
 
 class OverviewPageContent extends Component {
 
@@ -76,6 +76,19 @@ class OverviewPageContent extends Component {
               <PanelStatusTableContainer />
             </Segment>
           </Grid.Column>
+
+          <Grid.Column width={16}>
+            <Segment>
+              <Header icon='sun outline' content='Estimation panneaux solaires' />
+              <p>Nombre de panneaux solaires</p>
+              <SolarPanelEstimationContainer/>
+            </Segment>
+          </Grid.Column>
+          <a href={pdf} download="Devis"><Button>Télécharger le Devis</Button></a>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
         </Grid>
       </Container>
     );

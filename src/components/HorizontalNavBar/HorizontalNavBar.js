@@ -60,8 +60,6 @@ class HorizontalNavBar extends Component {
             <Icon name='sun' color='yellow'/> Light Power
           </Menu.Item>
           <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone' active>Aperçu</Menu.Item>
-          <Menu.Item as='a' className='hidden-on-tablet hidden-on-phone'>Prédiction sonde</Menu.Item>
-
           <Menu.Menu position='right' className='hidden-on-tablet hidden-on-phone'>
             <Dropdown item icon='dropdown' text="Gerard Menfaimdetoi">
               <Dropdown.Menu>

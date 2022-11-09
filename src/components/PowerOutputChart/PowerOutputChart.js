@@ -20,7 +20,15 @@ class PowerOutputChart extends Component {
 
     this.powerLineBorderColor = palette.lightGreen.toString();
 
-    this.timeLabels = ['-5s', '', '', '', '', 'Maintenant'];
+    const initialTotalOutputPowerHistory = [null, null, null, null, null, null].map(() => {
+      return PowerOutputChart.getTotalOutputPower(this.props.panels);
+    });
+
+    // Store these values in the component state so React re-renders the component whenever these values change.
+    this.state = {
+      totalOutputPowerHistory: initialTotalOutputPowerHistory,
+      pointRadius: this.initialPointRadius,
+    };
 
     this.options = {
       maintainAspectRatio: false,
@@ -71,15 +79,8 @@ class PowerOutputChart extends Component {
       display: false
     };
 
-    const initialTotalOutputPowerHistory = [null, null, null, null, null, null].map(() => {
-      return PowerOutputChart.getTotalOutputPower(this.props.panels);
-    });
 
-    // Store these values in the component state so React re-renders the component whenever these values change.
-    this.state = {
-      totalOutputPowerHistory: initialTotalOutputPowerHistory,
-      pointRadius: this.initialPointRadius
-    };
+
 
     setInterval(this.updateTotalOutputPowerHistory.bind(this), 1000);
   }
@@ -117,7 +118,7 @@ class PowerOutputChart extends Component {
   render() {
     // Construct the `data` object in the format the `Line` component expects.
     const data = {
-      labels: this.timeLabels,
+      labels: this.props.toggleSemaine ? ['-1 Mois', '-24J', '-18J', '-12J', '-6J', 'Maintenant'] : ['-24H', '-20H', '-16H', '-12H', '-8H', 'Maintenant'],
       datasets: [{
         label: this.powerLineLabel,
         data: this.state.totalOutputPowerHistory,

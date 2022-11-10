@@ -49,7 +49,8 @@ class PowerOutputChart extends Component {
           },
           ticks: {
             beginAtZero: true,
-            suggestedMax: 0.5
+            suggestedMax: 0.3,
+            stepSize: 0.1
           }
         }]
       },

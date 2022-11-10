@@ -287,7 +287,8 @@ class SolarPanelEstimation extends Component {
                 <p>Investissement net intial (après déduction de la réduction gouvernementale) : {(this.state.totalPanneaux * 1000 + 500)-(this.state.totalPanneaux * 100 + 320)} €</p>
                 <p>Superficie couverte par les panneaux : {this.state.totalPanneaux * 1.5} m²</p>
                 <p>Profit brut généré par les panneaux photovoltaïque : {this.state.totalPanneaux * 1385.2} €</p>
-                <Dropdown placeholder='Nombre de panneaux' selection onChange={this.handleDropdown2} defaultValue={''+this.state.totalYears} options={numberYears} />
+                <p>Nombre d'années pour calculer le profit : </p>
+                <Dropdown placeholder="Nombre d'années" selection onChange={this.handleDropdown2} defaultValue={''+this.state.totalYears} options={numberYears} />
                 <p style={{marginTop: '20px'}}>Profit net sur {this.state.totalYears} ans : {(this.state.totalYears * 1385.2) - ((this.state.totalPanneaux * 1000 + 500)-(this.state.totalPanneaux * 100 + 320)) } €</p>
             </React.Fragment>
         );

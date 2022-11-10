@@ -53,7 +53,9 @@ class ConsoChart extends Component {
           },
           ticks: {
             beginAtZero: true,
-            suggestedMax: 0.5
+            suggestedMax: 0.4,
+            stepSize: 0.1
+
           }
         }]
       },
@@ -118,7 +120,7 @@ class ConsoChart extends Component {
       const outputPowerW = panel.outputVoltageV * panel.outputCurrentA;
       const outputPowerKW = outputPowerW / 1000 * 2;
       if (this.toggleSemaine){return 0.31;}
-      return getNearbyRandomNumber(0.25,0.35,0.30,0.008);
+      return getNearbyRandomNumber(0.05,0.38,0.25,0.1);
     }, 0);
   }
 
